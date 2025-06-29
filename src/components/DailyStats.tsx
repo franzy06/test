@@ -72,27 +72,53 @@ const DailyStats = ({
   return (
     <div className="space-y-6">
       {/* Daily Stats Card */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-        <h2 className="text-lg font-semibold text-slate-700 mb-4">
-          Daily Stats
-        </h2>
+      <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/30 card-hover">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-8 h-8 rounded-xl primary-gradient flex items-center justify-center">
+            <span className="text-white text-sm font-bold">📊</span>
+          </div>
+          <h2 className="text-lg font-bold text-slate-700">Daily Stats</h2>
+        </div>
 
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-500">Focus Time</span>
-            <span className="font-semibold text-slate-700">{focusTime}</span>
+        <div className="space-y-5">
+          <div className="flex justify-between items-center p-3 rounded-xl bg-gradient-to-r from-pink-50 to-blue-50 border border-pink-100">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-r from-pink-400 to-pink-500 flex items-center justify-center">
+                <span className="text-white text-xs">⏰</span>
+              </div>
+              <span className="text-sm font-medium text-slate-600">
+                Focus Time
+              </span>
+            </div>
+            <span className="font-bold text-slate-800 text-lg">
+              {focusTime}
+            </span>
           </div>
 
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-500">Completed Sessions</span>
-            <span className="font-semibold text-slate-700">
+          <div className="flex justify-between items-center p-3 rounded-xl bg-gradient-to-r from-blue-50 to-pink-50 border border-blue-100">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-r from-blue-400 to-blue-500 flex items-center justify-center">
+                <span className="text-white text-xs">✅</span>
+              </div>
+              <span className="text-sm font-medium text-slate-600">
+                Completed Sessions
+              </span>
+            </div>
+            <span className="font-bold text-slate-800 text-lg">
               {completedSessions}
             </span>
           </div>
 
-          <div className="flex justify-between items-center">
-            <span className="text-sm text-slate-500">Daily Streak</span>
-            <span className="font-semibold text-slate-700">
+          <div className="flex justify-between items-center p-3 rounded-xl bg-gradient-to-r from-pink-50 to-purple-50 border border-pink-100">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-r from-pink-400 to-purple-500 flex items-center justify-center">
+                <span className="text-white text-xs">🔥</span>
+              </div>
+              <span className="text-sm font-medium text-slate-600">
+                Daily Streak
+              </span>
+            </div>
+            <span className="font-bold text-slate-800 text-lg">
               {dailyStreak} days
             </span>
           </div>
@@ -100,11 +126,16 @@ const DailyStats = ({
       </div>
 
       {/* Calendar Card */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-slate-700">{`${month} ${year}`}</h3>
-          <div className="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center cursor-pointer hover:bg-slate-200 transition-colors">
-            <span className="text-xs text-slate-500">📅</span>
+      <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-xl border border-white/30 card-hover">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl accent-gradient flex items-center justify-center">
+              <span className="text-slate-700 text-sm font-bold">📅</span>
+            </div>
+            <h3 className="text-lg font-bold text-slate-700">{`${month} ${year}`}</h3>
+          </div>
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-r from-pink-100 to-blue-100 flex items-center justify-center cursor-pointer hover:shadow-lg transition-all duration-300 button-hover border border-pink-200">
+            <span className="text-sm text-pink-600">⚙️</span>
           </div>
         </div>
 
@@ -127,12 +158,12 @@ const DailyStats = ({
                 <div
                   key={index}
                   className={cn(
-                    "w-8 h-8 flex items-center justify-center text-xs rounded-full cursor-pointer transition-colors",
+                    "w-8 h-8 flex items-center justify-center text-xs rounded-xl cursor-pointer transition-all duration-300 button-hover font-medium",
                     isToday
-                      ? "bg-red-400 text-white font-semibold"
+                      ? "primary-gradient text-white font-bold shadow-lg glow-effect"
                       : isHighlighted
-                        ? "bg-red-400 text-white font-semibold"
-                        : "hover:bg-slate-100 text-slate-600",
+                        ? "secondary-gradient text-white font-bold shadow-md"
+                        : "hover:bg-gradient-to-r hover:from-pink-50 hover:to-blue-50 text-slate-600 hover:text-slate-800 hover:shadow-sm",
                   )}
                 >
                   {dayNumber}
